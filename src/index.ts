@@ -75,7 +75,6 @@ createConnection().then(con => {
         let newMember = await bandService.hireBandMember(args.newBandMember);
         return newMember
       }
-
     }
   };
 
