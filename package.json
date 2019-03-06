@@ -17,7 +17,7 @@
     "typeorm": "0.2.7"
   },
   "scripts": {
-    "start": "nodemon",
+    "start": "node build/index.js",
     "build": "tsc"
   }
 }
