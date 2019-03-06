@@ -15,7 +15,7 @@ const typeDefs = gql`
     instrument: String
     age: Int
     drink: String
-
+    photoURL: String
   }
 
   type BandMember{
@@ -26,6 +26,7 @@ const typeDefs = gql`
     age: Int
     drink: String
     fans: [Fans]
+    photoURL: String
   }
 
   type Fans {

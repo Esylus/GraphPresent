@@ -9,16 +9,20 @@
   },
   "dependencies": {
     "apollo-server-express": "2.4.8",
+    "copyfiles": "2.1.0",
     "express": "4.16.4",
     "graphql": "14.1.1",
     "mysql": "^2.14.1",
+    "node": "10.15.2",
     "nodemon": "1.18.10",
     "reflect-metadata": "^0.1.10",
+    "rimraf": "2.6.3",
     "typeorm": "0.2.7"
   },
   "scripts": {
-    "start": "node build/index.js",
+    "start": "nodemon",
     "tsc": "tsc",
-    "postinstall": "npm run tsc"
+    "postinstall": "npm run tsc",
+    "build": "rimraf build && tsc --skipLibCheck && copyfiles bin/www build && copyfiles ormconfig.js build && copyfiles node_modules/** build"
   }
 }

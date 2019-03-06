@@ -39,6 +39,7 @@ export class BandService {
     newMemberEntity.realName = newBandMember.realName;
     newMemberEntity.age = newBandMember.age;
     newMemberEntity.drink = newBandMember.drink;
+    newMemberEntity.photoURL = newBandMember.photoURL;
 
     let savedMember = await this.bandMemberRepository.save(newMemberEntity);
   };
