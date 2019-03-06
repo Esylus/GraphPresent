@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "node build/index.js",
-    "build": "tsc"
+    "tsc": "tsc",
+    "postinstall": "npm run tsc"
   }
 }
