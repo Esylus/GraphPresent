@@ -81,10 +81,11 @@ createConnection().then(con => {
   const server = new ApolloServer({ typeDefs, resolvers });
 
   const app = express();
+  const port = process.env.PORT || 8080;
+
   server.applyMiddleware({ app });
 
-  const PORT = process.env.PORT || 3000;;
-  app.listen(PORT, () =>
+  app.listen(port, () =>
     console.log(`🚀 Server ready`)
   );
 
