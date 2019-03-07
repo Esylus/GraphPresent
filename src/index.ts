@@ -2,8 +2,8 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { BandService } from "./bandService"
 
-const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
+const express = require('express');
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`

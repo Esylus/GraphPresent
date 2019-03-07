@@ -10,8 +10,6 @@ export class BandService {
 
   public theBandMembers = async () => {
 
-    console.log('WE ARE HERE');
-
     let getBandMembers = await this.bandMemberRepository.find();
     // this.fans[0].location = this.location[0];
     // this.fans[1].location = this.location[1];
@@ -33,7 +31,7 @@ export class BandService {
 
   public hireBandMember = async (newBandMember: any) => {
 
-    console.log('saveBandMember', newBandMember);
+    // console.log('saveBandMember', newBandMember);
     let newMemberEntity = new BandMemberEntity();
     newMemberEntity.name = newBandMember.name;
     newMemberEntity.realName = newBandMember.realName;

@@ -2,7 +2,6 @@
   "name": "GraphPresent",
   "version": "0.0.1",
   "description": "Awesome project developed with TypeORM.",
-  "main": "index.ts",
   "devDependencies": {
     "@types/node": "8.10.43",
     "ts-node": "3.3.0",
@@ -24,7 +23,10 @@
     "start": "nodemon",
     "tsc": "tsc",
     "postinstall": "npm run tsc",
-    "server": "ts-node ./build/index.js",
-    "build": "rimraf build && tsc --skipLibCheck && copyfiles bin/www build && copyfiles ormconfig.js build && copyfiles node_modules/** build"
+    "server": "node ./build/index.js",
+    "dev": "ts-node ./src/index.ts",
+    "start": "node ./build/index.js",
+    "prod": "npm run build && npm start",
+    "build": "rimraf build && tsc --skipLibCheck &&  copyfiles ormconfig.json build && copyfiles node_modules/** build"
   }
 }
