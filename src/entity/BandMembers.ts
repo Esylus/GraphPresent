@@ -27,5 +27,4 @@ export class BandMembers {
 
   @OneToMany(type => Fans, fans => fans.bandMembers, { nullable: true })
   fans?: Fans[];
-
 }
