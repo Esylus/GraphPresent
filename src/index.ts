@@ -83,7 +83,7 @@ createConnection().then(con => {
   const app = express();
   server.applyMiddleware({ app });
 
-  const PORT = 80;
+  const PORT = process.env.PORT || 3000;;
   app.listen(PORT, () =>
     console.log(`🚀 Server ready`)
   );
