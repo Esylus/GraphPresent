@@ -39,15 +39,13 @@ const typeDefs = gql`
     province: String
   }
 
-#------------------------- Root Query -------------
-  type Query {
-    bandMembers: [BandMember]
-  }
-
-#-------------------------- Root Mutation --------
   type Mutation {
     fireMember(firedMemberId: Int): BandMember
     hireMember(newBandMember: NewBandMember): BandMember
+  }
+
+  type Query {
+    bandMembers: [BandMember]
   }
 `;
 
