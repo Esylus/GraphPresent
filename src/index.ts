@@ -7,6 +7,7 @@ const express = require('express');
 
 //Add a getBandMember
 //Add fans and maybe locations
+// Responses for mutations if easy
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
@@ -34,12 +35,6 @@ const typeDefs = gql`
   type Fans {
     name: String
     age: Int
-    location: Location
-  }
-
-  type Location {
-    city: String
-    province: String
   }
 
   type Mutation {
@@ -49,6 +44,7 @@ const typeDefs = gql`
 
   type Query {
     bandMembers: [BandMember]
+    bandMember(id: Int): BandMember 
   }
   
 `;
@@ -64,6 +60,11 @@ createConnection().then(con => {
         let bandService = new BandService(con);
         let theBand = await bandService.getBandMembers();
         return theBand
+      },
+      bandMember: async (source, args, context, ast) => {
+        let bandService = new BandService(con);
+        let member = await bandService.getBandMember(args.id);
+        return member
       }
     },
     Mutation: {

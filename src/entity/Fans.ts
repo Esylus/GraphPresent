@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { BandMembers } from "./BandMembers";
 
 @Entity()
 export class Fans {
@@ -12,7 +13,8 @@ export class Fans {
   @Column()
   age: string;
 
-  @Column()
-  location: number;
+  @ManyToOne(type => BandMembers, bandMembers => bandMembers.fans)
+  @JoinColumn()
+  bandMembers?: BandMembers;
 
 }

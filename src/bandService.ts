@@ -9,16 +9,12 @@ export class BandService {
   }
 
   public getBandMembers = async () => {
-
-    let getBandMembers = await this.bandMemberRepository.find();
-
+    let getBandMembers = await this.bandMemberRepository.find({ relations: ["fans"] });
     return getBandMembers;
   }
 
   public getBandMember = async (id: number) => {
-
-    let getBandMember = await this.bandMemberRepository.findOne({ where: { id: id } });
-
+    let getBandMember = await this.bandMemberRepository.findOne({ where: { id: id }, relations: ["fans"] });
     return getBandMember;
   }
 
