@@ -47,6 +47,7 @@ const typeDefs = gql`
   type Query {
     bandMembers: [BandMember]
   }
+  
 `;
 
 // Provide resolver functions for your schema fields
