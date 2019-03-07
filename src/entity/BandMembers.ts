@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { Fans } from "./Fans";
+// import { Fans } from "./Fans";
 
 @Entity()
 export class BandMembers {
@@ -25,6 +25,6 @@ export class BandMembers {
   @Column()
   photoURL: string;
 
-  @OneToMany(type => Fans, fans => fans.bandMembers, { nullable: true })
-  fans?: Fans[];
+  // @OneToMany(type => Fans, fans => fans.bandMembers, { nullable: true })
+  // fans?: Fans[];
 }

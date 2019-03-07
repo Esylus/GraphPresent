@@ -28,7 +28,7 @@ const typeDefs = gql`
     instrument: String
     age: Int
     drink: String
-    fans: [Fans]
+    # fans: [Fans]
     photoURL: String
   }
 
