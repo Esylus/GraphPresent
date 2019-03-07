@@ -24,7 +24,7 @@
     "start": "nodemon",
     "tsc": "tsc",
     "postinstall": "npm run tsc",
-    "serve": "ts-node ./build/index.js",
+    "server": "ts-node ./build/index.js",
     "build": "rimraf build && tsc --skipLibCheck && copyfiles bin/www build && copyfiles ormconfig.js build && copyfiles node_modules/** build"
   }
 }
