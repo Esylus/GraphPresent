@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Query {
     bandMembers: [BandMember]
   }
-
+  
 `;
 
 // Provide resolver functions for your schema fields
@@ -81,12 +81,16 @@ createConnection().then(con => {
   const server = new ApolloServer({ typeDefs, resolvers });
 
   const app = express();
-  const port = process.env.PORT || 8080;
+
+  app.get('/test', function (req, res) {
+    res.send('Invalid Enpoint');
+  });
 
   server.applyMiddleware({ app });
+  const port = process.env.PORT || 8080;
 
-  app.listen(port, () =>
-    console.log(`🚀 Server ready`)
+  app.listen({ port: port }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
   );
 
 });
