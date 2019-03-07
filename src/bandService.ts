@@ -11,12 +11,6 @@ export class BandService {
   public theBandMembers = async () => {
 
     let getBandMembers = await this.bandMemberRepository.find();
-    // this.fans[0].location = this.location[0];
-    // this.fans[1].location = this.location[1];
-    // this.fans1[0].location = this.location[2];
-    // this.fans1[1].location = this.location[3];
-    // this.gunsNRoses[0].fans = this.fans;
-    // this.gunsNRoses[1].fans = this.fans1;
 
     return getBandMembers;
   }

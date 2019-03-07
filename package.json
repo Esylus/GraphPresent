@@ -26,6 +26,6 @@
     "dev": "ts-node ./src/index.ts",
     "start": "node ./build/index.js",
     "prod": "npm run build && npm start",
-    "build": "rimraf build && tsc --skipLibCheck &&  copyfiles ormconfig.json build && copyfiles node_modules/** build"
+    "build": "rimraf build && tsc --skipLibCheck &&  copyfiles ormconfig.json build"
   }
 }
