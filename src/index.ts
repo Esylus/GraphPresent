@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Query {
     bandMembers: [BandMember]
   }
-  
+
 `;
 
 // Provide resolver functions for your schema fields
@@ -83,8 +83,9 @@ createConnection().then(con => {
   const app = express();
   server.applyMiddleware({ app });
 
-  app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  const PORT = 80;
+  app.listen(PORT, () =>
+    console.log(`🚀 Server ready`)
   );
 
 });
