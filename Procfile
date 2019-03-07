@@ -1,3 +1,3 @@
 
 
-web: node build/index.js
+web: ts-node ./build/index.js
