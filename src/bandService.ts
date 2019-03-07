@@ -8,11 +8,18 @@ export class BandService {
     this.bandMemberRepository = connection.getRepository(BandMemberEntity);
   }
 
-  public theBandMembers = async () => {
+  public getBandMembers = async () => {
 
     let getBandMembers = await this.bandMemberRepository.find();
 
     return getBandMembers;
+  }
+
+  public getBandMember = async (id: number) => {
+
+    let getBandMember = await this.bandMemberRepository.findOne({ where: { id: id } });
+
+    return getBandMember;
   }
 
   public fireBandMember = async (id: number) => {

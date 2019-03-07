@@ -5,6 +5,9 @@ import { BandService } from "./bandService"
 const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
 
+//Add a getBandMember
+//Add fans and maybe locations
+
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
 
@@ -59,7 +62,7 @@ createConnection().then(con => {
     Query: {
       bandMembers: async () => {
         let bandService = new BandService(con);
-        let theBand = await bandService.theBandMembers();
+        let theBand = await bandService.getBandMembers();
         return theBand
       }
     },
@@ -87,15 +90,29 @@ createConnection().then(con => {
 
   const app = express();
 
+
+  app.get('/bandmembers', async (req, res) => {
+    let bandService = new BandService(con);
+    let theBand = await bandService.getBandMembers();
+    res.send(JSON.stringify(theBand));
+  });
+
+  app.get('/bandmember/:id', async (req, res) => {
+    let bandService = new BandService(con);
+    let member = await bandService.getBandMember(req.params.id);
+    res.send(JSON.stringify(member));
+  });
+
   app.get('/test', function (req, res) {
     res.send('Invalid Enpoint');
   });
+
 
   server.applyMiddleware({ app });
   const port = process.env.PORT || 8080;
 
   app.listen({ port: port }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(`🚀 Server ready at http://localhost:${port}`)
   );
 
 });
